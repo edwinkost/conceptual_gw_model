@@ -51,8 +51,8 @@ cellarea = pcr.readmap(cell_area_file_name)
 pcrglobwb_catchment_area_km2 = pcr.catchmenttotal(cellarea, ldd) / 1e6
 
 # loop through the table
-#~ for table_line in table_lines[1:len(table_lines) + 1]:
-for table_line in table_lines[1:3]:
+for table_line in table_lines[1:len(table_lines) + 1]:
+#~ for table_line in table_lines[1:3]:
 
     # select one line (representing each station) and save it to a tmp file
     tmp_file_name = "one_line.tmp"
@@ -104,12 +104,12 @@ for table_line in table_lines[1:3]:
     # save using map2col
     pcr.report(edwin_code, "edwin_code.map")
     pcr.report(edwin_code_pcrglobwb_catchment_area_km2, "edwin_code_pcrglobwb_catchment_area_km2.map")
-    cmd = "map2col edwin_code.map edwin_code_pcrglobwb_catchment_area_km2.map edwin_code_pcrglobwb_catchment_area_km2.txt" 
+    cmd = "map2col edwin_code.map edwin_code_pcrglobwb_catchment_area_km2.map edwin_code_pcrglobwb_catchment_area_km2.tmp" 
     print(cmd)
     os.system(cmd)
 
     # save columnn file
-    cmd = "cat edwin_code_pcrglobwb_catchment_area_km2.txt >> table_edwin_code_pcrglobwb_catchment_area_km2 edwin_code_pcrglobwb_catchment_area_km2.txt"
+    cmd = "cat edwin_code_pcrglobwb_catchment_area_km2.tmp >> table_edwin_code_pcrglobwb_catchment_area_km2.txt"
     print(cmd)
     os.system(cmd)
 
