@@ -95,7 +95,7 @@ for table_line in table_lines[1:3]:
         areaorder = pcr.areaorder( windowmaximum(usgs_drain_area_km2, 0.1) - pcrglobwb_catchment_area_km2, edwin_code)
         
         # select pixel
-        edwin_code = pcr.ifthen(areaorder eq 1., edwin_code)
+        edwin_code = pcr.ifthen(areaorder == 1., edwin_code)
         
         # pcrglobwb catchment area
         edwin_code_pcrglobwb_catchment_area_km2 = pcr.ifthen(areaorder == 1., pcrglobwb_catchment_area_km2)
