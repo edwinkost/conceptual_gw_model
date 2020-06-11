@@ -79,7 +79,7 @@ for table_line in table_lines[1:3]:
     edwin_code_pcrglobwb_catchment_area_km2 = pcr.ifthen(pcr.defined(edwin_code), pcrglobwb_catchment_area_km2)
 
     # calculate the absolute difference
-    abs_diff = pcr.abs(usgs_drain_area - edwin_code_pcrglobwb_catchment_area_km2)
+    abs_diff = pcr.abs(usgs_drain_area_km2 - edwin_code_pcrglobwb_catchment_area_km2)
     
     # make correction if required 
     abs_diff_value = pcr.cellvalue(pcr.mapmaximum(abs_diff), 1)[0]
