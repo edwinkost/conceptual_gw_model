@@ -92,7 +92,7 @@ for table_line in table_lines[1:3]:
         edwin_code = pcr.windowmajority(edwin_code, 0.1)      
 
         # find the most accurate cell: 
-        areaorder = pcr.areaorder( windowmaximum(usgs_drain_area_km2, 0.1) - pcrglobwb_catchment_area_km2), edwin_code)
+        areaorder = pcr.areaorder( windowmaximum(usgs_drain_area_km2, 0.1) - pcrglobwb_catchment_area_km2, edwin_code)
         
         # select pixel
         edwin_code = pcr.ifthen(areaorder eq 1., edwin_code)
