@@ -115,7 +115,7 @@ for table_line in table_lines[0:len(table_lines) + 1]:
     os.system(cmd)
 
     # show the content of columnn file
-    cmd = "cat edwin_code_pcrglobwb_catchment_area_km2.txt"
+    cmd = "cat edwin_code_pcrglobwb_catchment_area_km2.tmp"
     print(cmd)
     os.system(cmd)
     
