@@ -98,7 +98,7 @@ for table_line in table_lines[1:3]:
         edwin_code = pcr.ifthen(areaorder eq 1., edwin_code)
         
         # pcrglobwb catchment area
-        edwin_code_pcrglobwb_catchment_area_km2 = pcr.ifthen(areaorder eq 1., pcrglobwb_catchment_area_km2)
+        edwin_code_pcrglobwb_catchment_area_km2 = pcr.ifthen(areaorder == 1., pcrglobwb_catchment_area_km2)
 
     
     # save using map2col
