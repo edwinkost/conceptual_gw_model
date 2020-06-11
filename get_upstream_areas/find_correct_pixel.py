@@ -80,11 +80,13 @@ for table_line in table_lines[1:3]:
 
     # calculate the absolute difference
     abs_diff = pcr.abs(usgs_drain_area - edwin_code_pcrglobwb_catchment_area_km2)
-    abs_diff_value = pcr.cellvalue(pcr.mapmaximum(abs_diff), 1)[0] /  
     
     # make correction if required 
-    if (pcr.cellvalue(pcr.mapmaximum(usgs_drain_area_km2), 1)[0] > 1000.0) and \
-       (pcr.cellvalue(pcr.mapmaximum(abs_diff_value), 1)[0] > 0.10 * pcr.cellvalue(pcr.mapmaximum(usgs_drain_area_km2)):
+    abs_diff_value = pcr.cellvalue(pcr.mapmaximum(abs_diff), 1)[0]
+    usgs_drain_area_km2 =  pcr.cellvalue(pcr.mapmaximum(usgs_drain_area_km2), 1)[0]
+
+    if (usgs_drain_area_km2 > 1000.0) and \
+       (abs_diff_value > 0.10 * usgs_drain_area_km2):
         
         # class within 0.1 arc degree windows
         edwin_code = pcr.windowmajority(edwin_code, 0.1)      
