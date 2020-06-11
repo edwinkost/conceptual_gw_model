@@ -63,14 +63,14 @@ for table_line in table_lines[1:3]:
     
     # edwin_code.map: col2map --clone lddsound_05min.map -N -x 3 -y 2 -v 1 one_line_from_edwin_code_and_usgs_drain_area_km2.txt edwin_code.map
     cmd = "col2map --clone " + ldd_file_name + \
-          " -N -x 3 -y 2 -v 1 " + ldd_file_name + " edwin_code.map"
+          " -N -x 3 -y 2 -v 1 " + "one_line.tmp" + " edwin_code.map"
     print(cmd)
     os.system(cmd)
     edwin_code = pcr.readmap( "edwin_code.map" )
 
     # usgs_drain_area.map: col2map --clone lddsound_05min.map -S -x 3 -y 2 -v 4 one_line_from_edwin_code_and_usgs_drain_area_km2.txt usgs_drain_area.map
     cmd = "col2map --clone " + ldd_file_name + \
-          " -S -x 3 -y 2 -v 4 " + ldd_file_name + " usgs_drain_area.map"
+          " -S -x 3 -y 2 -v 4 " + "one_line.tmp" + " usgs_drain_area.map"
     print(cmd)
     os.system(cmd)
     usgs_drain_area_km2 = pcr.readmap( "usgs_drain_area.map" )
