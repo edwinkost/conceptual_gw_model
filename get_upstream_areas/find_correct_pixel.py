@@ -24,8 +24,7 @@ if os.path.exists(out_folder) and (" " not in out_folder) and (out_folder != "")
     os.system(cmd)
 
 # prepare output folder 
-if os.path.exists(out_folder) == False:
-os.makedirs(out_folder)
+if os.path.exists(out_folder) == False: os.makedirs(out_folder)
 os.chdir(out_folder)
 
 
