@@ -48,7 +48,7 @@ ldd = pcr.readmap(ldd_file_name)
 cell_area_file_name =  "/scratch/depfg/sutan101/data/pcrglobwb2_input_release/version_2019_11_beta_extended/pcrglobwb2_input/global_05min/routing/ldd_and_cell_area/cellsize05min.correct.map"
 cellarea = pcr.readmap(cell_area_file_name) 
 # - calculate pcrglobwb catchment area (km2)
-pcrglobwb_catchment_area_km2 = catchmenttotal(cellarea, ldd) / 1e6
+pcrglobwb_catchment_area_km2 = pcr.catchmenttotal(cellarea, ldd) / 1e6
 
 # loop through the table
 #~ for table_line in table_lines[1:len(table_lines) + 1]:
