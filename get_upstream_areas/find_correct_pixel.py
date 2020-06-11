@@ -51,7 +51,8 @@ cellarea = pcr.readmap(cell_area_file_name)
 pcrglobwb_catchment_area_km2 = pcr.catchmenttotal(cellarea, ldd) / 1e6
 
 # loop through the table
-for table_line in table_lines[1:len(table_lines) + 1]:
+#~ for table_line in table_lines[1:len(table_lines) + 1]:
+for table_line in table_lines[0:len(table_lines) + 1]:
 #~ for table_line in table_lines[1:3]:
 
     # select one line (representing each station) and save it to a tmp file
@@ -92,7 +93,7 @@ for table_line in table_lines[1:len(table_lines) + 1]:
         edwin_code = pcr.windowmajority(edwin_code, 0.1)      
 
         # find the most accurate cell: 
-        areaorder = pcr.areaorder( windowmaximum(usgs_drain_area_km2, 0.1) - pcrglobwb_catchment_area_km2, edwin_code)
+        areaorder = pcr.areaorder( pcr.windowmaximum(usgs_drain_area_km2, 0.1) - pcrglobwb_catchment_area_km2, edwin_code)
         
         # select pixel
         edwin_code = pcr.ifthen(areaorder == 1., edwin_code)
