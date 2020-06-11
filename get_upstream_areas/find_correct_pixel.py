@@ -76,7 +76,7 @@ for table_line in table_lines[1:3]:
     usgs_drain_area_km2 = pcr.readmap( "usgs_drain_area.map" )
 
     # pcrglobwb catchment area
-    edwin_code_pcrglobwb_catchment_area_km2 = pcr.ifthen(defined(edwin_code), pcrglobwb_catchment_area_km2)
+    edwin_code_pcrglobwb_catchment_area_km2 = pcr.ifthen(pcr.defined(edwin_code), pcrglobwb_catchment_area_km2)
 
     # calculate the absolute difference
     abs_diff = pcr.abs(usgs_drain_area - edwin_code_pcrglobwb_catchment_area_km2)
